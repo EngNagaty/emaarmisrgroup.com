@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>إعمار مصر جروب | مقاولات عامة واستثمار عقاري</title>
+<meta name="description" content="إعمار مصر جروب (EMG) شركة مقاولات عامة واستثمار عقاري في مدينة بدر، القاهرة. بنية تحتية، إنشاءات، حفر وردم، توريدات هندسية، تشطيبات فاخرة وتسليم مفتاح.">
+<meta property="og:title" content="إعمار مصر جروب | رؤية هندسية.. لبناء المستقبل">
+<meta property="og:description" content="مقاولات عامة وبنية تحتية وتشطيبات فاخرة وتسليم مفتاح، من الحفر حتى التسليم.">
+<meta property="og:image" content="assets/logo.jpg">
+<meta property="og:locale" content="ar_EG">
+<meta name="theme-color" content="#2B2C2F">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #F28124;
+    --orange-deep: #B85A0B;
+    --graphite: #5E5F62;
+    --ink: #2B2C2F;
+    --concrete: #EDEEEF;
+    --line: #D3D5D8;
+    --paper: #FFFFFF;
+    --muted: #55575B;
+    --stroke: 10px;
+    --gutter: clamp(16px, 4vw, 48px);
+    --max: 1180px;
+    --display: "Alexandria", "IBM Plex Sans Arabic", system-ui, sans-serif;
+    --body: "IBM Plex Sans Arabic", system-ui, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.85;
+  }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.35; margin: 0; font-weight: 700; }
+  p { margin: 0; }
+  :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+
+  .wrap { width: 100%; max-width: calc(var(--max) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+  .skip, .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .skip:focus { width: auto; height: auto; clip-path: none; inset-inline-start: 16px; top: 16px; z-index: 50; background: var(--paper); padding: 8px 14px; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .55em;
+    min-height: 52px; padding: 0 1.5em;
+    font-family: var(--display); font-weight: 700; font-size: 1rem;
+    text-decoration: none; border: 3px solid var(--ink); cursor: pointer;
+    transition: background-color .15s, color .15s;
+  }
+  .btn-primary { background: var(--orange); color: var(--ink); border-color: var(--orange); }
+  .btn-primary:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn-ghost { background: transparent; color: var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: var(--paper); }
+  .btn svg { width: 1.25em; height: 1.25em; flex: none; }
+
+  /* Header */
+  .site-header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); }
+  .site-header .wrap { display: flex; align-items: center; gap: 24px; min-height: 76px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-inline-end: auto; }
+  .brand img { width: 54px; height: 54px; border-radius: 50%; }
+  .brand b { display: block; font-family: var(--display); font-size: 1.05rem; line-height: 1.3; }
+  .brand small { display: block; color: var(--muted); font-size: .8rem; line-height: 1.3; direction: ltr; text-align: right; }
+  .nav { display: flex; gap: 28px; }
+  .nav a { text-decoration: none; font-weight: 500; color: var(--muted); }
+  .nav a:hover { color: var(--ink); }
+  .header-call { min-height: 44px; padding: 0 1em; font-size: .95rem; }
+
+  /* Hero */
+  .hero { padding-block: clamp(40px, 7vw, 96px) 0; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(24px, 5vw, 72px); align-items: end; }
+  .tagline { font-family: var(--display); font-weight: 500; color: var(--graphite); font-size: 1.05rem; margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(2.1rem, 5.2vw, 3.9rem); font-weight: 800; line-height: 1.25; letter-spacing: -.01em; }
+  .hero-lead { margin-top: 22px; max-width: 34em; color: var(--muted); font-size: 1.125rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+  .hero-art { padding-bottom: 0; }
+  .skyline { width: 100%; height: auto; overflow: visible; }
+  .skyline .outline { fill: none; stroke: var(--graphite); stroke-width: var(--stroke); stroke-linejoin: miter; stroke-linecap: square; }
+  .skyline .win { fill: var(--orange); }
+
+  .facts {
+    margin-top: 0; border-top: var(--stroke) solid var(--graphite);
+    display: grid; grid-template-columns: repeat(3, 1fr);
+  }
+  .facts li { list-style: none; padding: 20px 0 22px; padding-inline-end: 20px; }
+  .facts li + li { border-inline-start: 1px solid var(--line); padding-inline-start: 20px; }
+  .facts b { display: block; font-family: var(--display); font-weight: 700; }
+  .facts span { color: var(--muted); font-size: .95rem; }
+  .facts ul { margin: 0; padding: 0; display: contents; }
+
+  /* Sections */
+  section { scroll-margin-top: 80px; }
+  .section { padding-block: clamp(64px, 9vw, 120px); }
+  .section-head { max-width: 40em; margin-bottom: clamp(36px, 5vw, 56px); }
+  .section-head h2 { font-size: clamp(1.7rem, 3.4vw, 2.6rem); font-weight: 800; }
+  .section-head p { margin-top: 14px; color: var(--muted); }
+  .bg-concrete { background: var(--concrete); }
+
+  /* Services */
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 40px; margin: 0; padding: 0; }
+  .services li { list-style: none; border-top: 3px solid var(--ink); padding-top: 22px; position: relative; }
+  .services li::before {
+    content: ""; position: absolute; top: -3px; inset-inline-start: 0;
+    width: 28px; height: 28px; background: var(--orange);
+  }
+  .services h3 { font-size: 1.3rem; margin: 18px 0 8px; }
+  .services p { color: var(--muted); }
+
+  /* Work gallery */
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: clamp(180px, 20vw, 250px); gap: 12px; }
+  .gallery figure { margin: 0; position: relative; overflow: hidden; background: var(--concrete); }
+  .gallery .g-lg { grid-column: span 2; grid-row: span 2; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery figcaption {
+    position: absolute; bottom: 0; inset-inline-start: 0;
+    background: var(--ink); color: var(--paper);
+    font-family: var(--display); font-weight: 700; font-size: .95rem;
+    padding: 8px 14px; display: flex; align-items: center; gap: 10px;
+  }
+  .gallery figcaption::before { content: ""; width: 10px; height: 10px; background: var(--orange); flex: none; }
+  .credit { margin-top: 14px; color: var(--muted); font-size: .85rem; }
+
+  /* Process */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; padding: 0; counter-reset: step; }
+  .steps li {
+    list-style: none; counter-increment: step; position: relative;
+    padding: 0 0 0 24px; padding-inline: 0 24px;
+  }
+  .steps li::before {
+    content: counter(step); display: grid; place-items: center;
+    width: 52px; height: 52px; background: var(--paper); border: 3px solid var(--ink);
+    font-family: var(--display); font-weight: 800; font-size: 1.3rem; margin-bottom: 20px;
+    position: relative; z-index: 1;
+  }
+  .steps li::after {
+    content: ""; position: absolute; top: 25px; inset-inline-start: 52px; inset-inline-end: 0; height: 3px; background: var(--line);
+  }
+  .steps li:last-child::after { display: none; }
+  .steps h3 { font-size: 1.15rem; margin-bottom: 6px; }
+  .steps p { color: var(--muted); font-size: 1rem; }
+
+  /* Investment band */
+  .invest { background: var(--ink); color: var(--paper); }
+  .invest-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+  .invest h2 { font-size: clamp(1.7rem, 3.4vw, 2.6rem); font-weight: 800; }
+  .invest p { color: #C9CBCE; margin-top: 16px; max-width: 34em; }
+  .invest ul { margin: 0; padding: 0; display: grid; gap: 0; }
+  .invest li { list-style: none; padding: 18px 0; border-bottom: 1px solid #4A4C50; display: flex; gap: 16px; align-items: baseline; }
+  .invest li:first-child { border-top: 1px solid #4A4C50; }
+  .invest li::before { content: ""; width: 12px; height: 12px; background: var(--orange); flex: none; transform: translateY(-2px); }
+  .invest .btn-primary:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+  .invest .actions { margin-top: 30px; }
+
+  /* Values */
+  .vision {
+    font-family: var(--display); font-weight: 500; font-size: clamp(1.3rem, 2.6vw, 1.9rem); line-height: 1.6;
+    max-width: 30em; padding-inline-start: 28px; border-inline-start: var(--stroke) solid var(--orange);
+  }
+  .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin: clamp(48px, 6vw, 72px) 0 0; padding: 0; }
+  .values li { list-style: none; }
+  .values h3 { font-size: 1.25rem; margin-bottom: 8px; }
+  .values p { color: var(--muted); }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
+  form { display: grid; gap: 18px; background: var(--paper); padding: clamp(22px, 4vw, 40px); border: 3px solid var(--ink); }
+  .field { display: grid; gap: 6px; }
+  .field label { font-weight: 600; font-size: .98rem; }
+  .field .opt { color: var(--muted); font-weight: 400; }
+  input, select, textarea {
+    font: inherit; color: var(--ink); background: var(--paper);
+    border: 1.5px solid #9A9CA0; border-radius: 0; padding: 12px 14px; min-height: 52px; width: 100%;
+  }
+  textarea { min-height: 110px; resize: vertical; }
+  input:focus, select:focus, textarea:focus { outline: 3px solid var(--orange); outline-offset: 0; border-color: var(--ink); }
+  input[aria-invalid="true"] { border-color: #B3261E; }
+  .err { color: #B3261E; font-size: .9rem; min-height: 0; }
+  .err:empty { display: none; }
+  .form-note { color: var(--muted); font-size: .9rem; }
+  form .btn { width: 100%; }
+
+  .contact-info h2 { font-size: clamp(1.7rem, 3.4vw, 2.6rem); font-weight: 800; }
+  .contact-info > p { color: var(--muted); margin-top: 14px; }
+  .channels { margin: 32px 0 0; padding: 0; }
+  .channels li { list-style: none; padding: 16px 0; border-top: 1px solid var(--line); }
+  .channels li:last-child { border-bottom: 1px solid var(--line); }
+  .channels .k { display: block; color: var(--muted); font-size: .9rem; }
+  .channels a, .channels .v { font-family: var(--display); font-weight: 700; font-size: 1.1rem; text-decoration: none; }
+  .channels a:hover { color: var(--orange-deep); text-decoration: underline; }
+  .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+  .channels .addr { font-family: var(--body); font-weight: 500; font-size: 1rem; }
+
+  /* Footer */
+  .site-footer { background: var(--ink); color: #C9CBCE; padding-block: 40px; }
+  .site-footer .wrap { display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: space-between; }
+  .site-footer .brand b { color: var(--paper); }
+  .site-footer .brand small { color: #A8AAAE; }
+  .site-footer nav { display: flex; gap: 24px; flex-wrap: wrap; }
+  .site-footer a { text-decoration: none; }
+  .site-footer a:hover { color: var(--paper); }
+  .copy { font-size: .9rem; width: 100%; border-top: 1px solid #4A4C50; padding-top: 20px; }
+
+  /* Floating WhatsApp (mobile) */
+  .wa-float {
+    position: fixed; inset-inline-start: 16px; bottom: 16px; z-index: 30;
+    width: 58px; height: 58px; border-radius: 50%; background: #1FA855; color: #fff;
+    display: none; place-items: center; box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  }
+  .wa-float svg { width: 30px; height: 30px; }
+
+  /* Load sequence: draw the skyline once, then light the windows */
+  @media (prefers-reduced-motion: no-preference) {
+    .skyline .outline { stroke-dasharray: 2600; stroke-dashoffset: 2600; animation: draw 1.8s cubic-bezier(.6,.05,.3,1) .2s forwards; }
+    .skyline .win { opacity: 0; transform-box: fill-box; transform-origin: center; animation: lit .35s ease-out forwards; }
+    .skyline .win:nth-of-type(1) { animation-delay: 1.75s; }
+    .skyline .win:nth-of-type(2) { animation-delay: 1.95s; }
+    .skyline .win:nth-of-type(3) { animation-delay: 2.15s; }
+    .skyline .win:nth-of-type(4) { animation-delay: 2.35s; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @keyframes lit { from { opacity: 0; transform: scale(.4); } to { opacity: 1; transform: scale(1); } }
+  }
+
+  /* Responsive */
+  @media (max-width: 980px) {
+    .nav { display: none; }
+    .services { grid-template-columns: repeat(2, 1fr); }
+    .steps { grid-template-columns: repeat(2, 1fr); gap: 40px 0; }
+    .steps li:nth-child(2)::after { display: none; }
+  }
+  @media (max-width: 760px) {
+    :root { --stroke: 8px; }
+    body { font-size: 1rem; }
+    .hero-grid, .invest-grid, .contact-grid { grid-template-columns: 1fr; }
+    .hero { padding-top: 32px; }
+    .hero-art { max-width: 320px; margin-top: 12px; }
+    .hero h1 { font-size: 2rem; }
+    .hero-lead { font-size: 1.02rem; margin-top: 16px; }
+    .hero-actions { margin-top: 24px; }
+    .facts { grid-template-columns: 1fr; }
+    .facts li { padding: 14px 0; }
+    .facts li + li { border-inline-start: 0; border-top: 1px solid var(--line); padding-inline-start: 0; }
+    .services, .values { grid-template-columns: 1fr; gap: 36px; }
+    .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 150px; gap: 8px; }
+    .gallery .g-lg { grid-column: span 2; grid-row: span 2; }
+    .gallery figcaption { font-size: .8rem; padding: 6px 10px; }
+    .steps { grid-template-columns: 1fr; gap: 28px; }
+    .steps li { display: grid; grid-template-columns: 52px 1fr; column-gap: 18px; padding: 0; }
+    .steps li::before { margin: 0; grid-row: span 2; }
+    .steps li::after { display: block; top: 52px; bottom: -28px; inset-inline-start: 25px; inset-inline-end: auto; width: 3px; height: auto; }
+    .steps li:nth-child(2)::after { display: block; }
+    .steps li:last-child::after { display: none; }
+    .hero-actions .btn { flex: 1 1 100%; }
+    .header-call span { display: none; }
+    .header-call { width: 48px; padding: 0; }
+    .brand img { width: 46px; height: 46px; }
+    .wa-float { display: grid; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="إعمار مصر جروب، الصفحة الرئيسية">
+      <img src="assets/logo.jpg" alt="" width="54" height="54">
+      <span><b>إعمار مصر جروب</b><small>Emaar Misr Group</small></span>
+    </a>
+    <nav class="nav" aria-label="أقسام الصفحة">
+      <a href="#services">الخدمات</a>
+      <a href="#work">أعمالنا</a>
+      <a href="#process">طريقة العمل</a>
+      <a href="#invest">الاستثمار العقاري</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+    <a class="btn btn-ghost header-call" href="tel:+201008996343" aria-label="اتصل بنا: 01008996343">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+      <span>اتصل بنا</span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="tagline">رؤية هندسية.. لبناء المستقبل</p>
+          <h1>نبني مشروعك من أول حفرة حتى تسليم المفتاح</h1>
+          <p class="hero-lead">إعمار مصر جروب شركة مقاولات عامة واستثمار عقاري من مدينة بدر. ننفّذ البنية التحتية والإنشاءات والتشطيبات الفاخرة لمشروعات قومية وتطويرات خاصة في أنحاء مصر، بجهة واحدة مسؤولة عن المشروع كله.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">اطلب عرض سعر لمشروعك</a>
+            <a class="btn btn-ghost" href="https://wa.me/201008996343?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3z"/></svg>
+              كلّمنا على واتساب
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <!-- Skyline drawn in the logo's vocabulary: one continuous stroke, square steps, slanted tower, orange windows -->
+          <svg class="skyline" viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+            <path class="outline" d="M24 420 V170 H150 V230 H205 V380 H285 V110 L395 46 V240 H470 V310 H530 V370 H600"/>
+            <path class="outline" d="M78 230 H150 V302 H78 Z"/>
+            <rect class="win" x="94" y="246" width="40" height="40"/>
+            <rect class="win" x="320" y="150" width="26" height="26"/>
+            <rect class="win" x="412" y="276" width="26" height="26"/>
+            <rect class="win" x="320" y="250" width="26" height="26"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="facts">
+        <ul>
+          <li><b>المقر الرئيسي</b><span>مدينة بدر، القاهرة</span></li>
+          <li><b>فرع الجيزة</b><span>شارع فيصل، الطالبية</span></li>
+          <li><b>نطاق العمل</b><span>مشروعات قومية وتطويرات خاصة في أنحاء مصر</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-concrete" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="services-title">كل ما يحتاجه مشروعك تحت سقف واحد</h2>
+        <p>نبدأ معك من تجهيز الأرض، أو ندخل في أي مرحلة تحتاجها، وننسّق كل الأعمال حتى لا تتعامل مع أكثر من مقاول.</p>
+      </div>
+      <ul class="services">
+        <li>
+          <h3>المقاولات العامة</h3>
+          <p>تنفيذ المباني السكنية والتجارية والإدارية، من الهيكل الخرساني إلى الأعمال المعمارية، تحت إشراف هندسي في الموقع.</p>
+        </li>
+        <li>
+          <h3>تطوير البنية التحتية</h3>
+          <p>أعمال الطرق والمرافق والشبكات التي تقوم عليها مشروعات التنمية والمجتمعات العمرانية الجديدة.</p>
+        </li>
+        <li>
+          <h3>أعمال الحفر والردم</h3>
+          <p>تجهيز الموقع والحفر والردم والدمك وتسوية الأرض، لتبدأ الأساسات على أرض مستعدة.</p>
+        </li>
+        <li>
+          <h3>التوريدات الهندسية المتكاملة</h3>
+          <p>توريد مواد ومستلزمات البناء بمواصفات مشروعك وفي مواعيدها، حتى لا يتوقف العمل في الموقع.</p>
+        </li>
+        <li>
+          <h3>التشطيبات الفاخرة</h3>
+          <p>تشطيب الوحدات السكنية والمكاتب والمساحات التجارية بخامات تختارها معنا وتنفيذ يراعي أدق التفاصيل.</p>
+        </li>
+        <li>
+          <h3>تسليم المفتاح</h3>
+          <p>نتولى المشروع كاملًا من الدراسة حتى التسليم، وتستلم مبنى جاهزًا للاستخدام.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="work-title">من الأساسات إلى التشطيب</h2>
+        <p>نوعية الأعمال التي ننفذها في مواقعنا، في كل مرحلة من مراحل المشروع.</p>
+      </div>
+      <div class="gallery">
+        <figure class="g-lg">
+          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&q=70&auto=format&fit=crop" alt="مهندسون وعمال على سقف خرساني مسلّح أثناء التنفيذ" width="1200" height="800" loading="lazy">
+          <figcaption>الهيكل الخرساني</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1517089596392-fb9a9033e05b?w=800&q=70&auto=format&fit=crop" alt="معدات ثقيلة تنفذ أعمال حفر وتسوية في موقع كبير" width="800" height="600" loading="lazy">
+          <figcaption>الحفر والردم</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=70&auto=format&fit=crop" alt="عمال يجهزون حديد التسليح قبل صب السقف" width="800" height="600" loading="lazy">
+          <figcaption>التسليح والصب</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1599995903128-531fc7fb694b?w=800&q=70&auto=format&fit=crop" alt="أوناش برجية فوق موقع إنشاءات وأساسات خرسانية" width="800" height="600" loading="lazy">
+          <figcaption>مواقع التطوير والبنية التحتية</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?w=800&q=70&auto=format&fit=crop" alt="صالة سكنية بتشطيب فاخر وأرضيات خشبية وإضاءة طبيعية" width="800" height="600" loading="lazy">
+          <figcaption>التشطيبات الفاخرة</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1551361415-69c87624334f?w=800&q=70&auto=format&fit=crop" alt="مبنى سكني حديث مكتمل بواجهات بيضاء وشرفات" width="800" height="600" loading="lazy">
+          <figcaption>تسليم المفتاح</figcaption>
+        </figure>
+      </div>
+      <p class="credit">صور توضيحية لنوعية الأعمال من Unsplash.</p>
+    </div>
+  </section>
+
+  <section class="section bg-concrete" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="process-title">كيف نعمل معك</h2>
+        <p>أربع مراحل واضحة، وتعرف في كل مرحلة أين وصل مشروعك.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>المعاينة</h3>
+          <p>نزور الموقع ونسمع ما تريد تنفيذه وميزانيتك والمدة المطلوبة.</p>
+        </li>
+        <li>
+          <h3>الدراسة وعرض السعر</h3>
+          <p>دراسة فنية وعرض سعر مفصّل بالبنود والكميات والجدول الزمني.</p>
+        </li>
+        <li>
+          <h3>التنفيذ</h3>
+          <p>فريق هندسي في الموقع يلتزم بمعايير الجودة والسلامة، مع متابعة دورية معك.</p>
+        </li>
+        <li>
+          <h3>التسليم</h3>
+          <p>نستلم معك الأعمال بندًا بندًا قبل تسليم المشروع.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section invest" id="invest" aria-labelledby="invest-title">
+    <div class="wrap invest-grid">
+      <div>
+        <h2 id="invest-title">عندك أرض أو تبحث عن فرصة استثمار عقاري؟</h2>
+        <p>إلى جانب المقاولات، تعمل إعمار مصر جروب في الاستثمار والتطوير العقاري. اجلس مع فريقنا لدراسة أرضك أو فكرتك، ونعرض عليك ما يناسبها من خيارات التطوير والشراكة.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact" data-service="استثمار عقاري">ناقش فرصة استثمار معنا</a>
+        </div>
+      </div>
+      <ul>
+        <li>دراسة الموقع والجدوى قبل أي التزام</li>
+        <li>تصميم وتنفيذ وتشطيب بخبرة مقاول واحد</li>
+        <li>شفافية كاملة في التكاليف والجدول الزمني</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="values" aria-labelledby="values-title">
+    <div class="wrap">
+      <h2 id="values-title" class="sr-only">رؤيتنا وقيمنا</h2>
+      <p class="vision">أن نصبح الشريك الأكثر ثقة في الهندسة والإنشاءات في المنطقة، وأن نساهم في بناء مشروعات وطنية مستدامة للأجيال القادمة.</p>
+      <ul class="values">
+        <li>
+          <h3>الجودة</h3>
+          <p>دقة في كل تفصيلة من تفاصيل الهيكل، لأن ما لا يظهر اليوم هو ما يحمل المبنى لعقود.</p>
+        </li>
+        <li>
+          <h3>النزاهة</h3>
+          <p>وضوح في البنود والأسعار والمواعيد، وشفافية في كل تعاملاتنا ومشروعاتنا.</p>
+        </li>
+        <li>
+          <h3>السلامة</h3>
+          <p>بيئة عمل آمنة في الموقع أولوية لا نتنازل عنها، لفريقنا ولجيران المشروع.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section bg-concrete" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact-grid">
+      <form id="lead-form" novalidate aria-describedby="form-note">
+        <div class="field">
+          <label for="f-name">الاسم</label>
+          <input id="f-name" name="name" autocomplete="name" required>
+          <p class="err" id="e-name"></p>
+        </div>
+        <div class="field">
+          <label for="f-phone">رقم الموبايل</label>
+          <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="01xxxxxxxxx" required>
+          <p class="err" id="e-phone"></p>
+        </div>
+        <div class="field">
+          <label for="f-service">نوع المشروع</label>
+          <select id="f-service" name="service">
+            <option>مقاولات عامة</option>
+            <option>بنية تحتية</option>
+            <option>حفر وردم</option>
+            <option>توريدات هندسية</option>
+            <option>تشطيبات</option>
+            <option>تسليم مفتاح</option>
+            <option>استثمار عقاري</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-msg">تفاصيل المشروع <span class="opt">(اختياري)</span></label>
+          <textarea id="f-msg" name="message" placeholder="مثال: عمارة سكنية 5 أدوار في مدينة بدر، الأرض جاهزة"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">أرسل الطلب عبر واتساب</button>
+        <p class="form-note" id="form-note">سيفتح واتساب برسالة جاهزة بالبيانات، وتصلنا بمجرد إرسالها.</p>
+      </form>
+
+      <div class="contact-info">
+        <h2 id="contact-title">احكِ لنا عن مشروعك</h2>
+        <p>اكتب بياناتك ونوع المشروع، ويتواصل معك مهندس من فريقنا لتحديد موعد المعاينة. أو اتصل بنا مباشرة.</p>
+        <ul class="channels">
+          <li><span class="k">اتصال وواتساب</span><a href="tel:+201008996343"><span class="ltr">010 0899 6343</span></a></li>
+          <li><span class="k">خط إضافي</span><a href="tel:+201515426770"><span class="ltr">015 1542 6770</span></a></li>
+          <li><span class="k">البريد الإلكتروني</span><a href="mailto:info@emgroup.com.eg"><span class="ltr">info@emgroup.com.eg</span></a></li>
+          <li><span class="k">المقر الرئيسي</span><span class="v addr">قطعة 33، شقة 3، المجاورة الثانية، الحي الأول، مدينة بدر، القاهرة</span></li>
+          <li><span class="k">فرع الجيزة</span><span class="v addr">شقة 2، الدور الأول، محطة التعاون، شارع فيصل، الطالبية</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img src="assets/logo.jpg" alt="" width="54" height="54">
+      <span><b>إعمار مصر جروب</b><small>رؤية هندسية.. لبناء المستقبل</small></span>
+    </a>
+    <nav aria-label="روابط">
+      <a href="#services">الخدمات</a>
+      <a href="#invest">الاستثمار العقاري</a>
+      <a href="#contact">تواصل معنا</a>
+      <a href="https://www.facebook.com/EmarmisrGroup/" target="_blank" rel="noopener">فيسبوك</a>
+      <a href="https://emgroup.com.eg" target="_blank" rel="noopener">الموقع الرسمي</a>
+    </nav>
+    <p class="copy">© <span id="year">2026</span> إعمار مصر جروب. جميع الحقوق محفوظة.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/201008996343" target="_blank" rel="noopener" aria-label="راسلنا على واتساب">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3z"/></svg>
+</a>
+
+<script>
+  var WA_NUMBER = '201008996343';
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // "Discuss investment" preselects the matching project type in the form
+  document.querySelectorAll('[data-service]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.getElementById('f-service').value = a.dataset.service;
+    });
+  });
+
+  var form = document.getElementById('lead-form');
+  function setError(id, msg) {
+    var input = document.getElementById('f-' + id);
+    document.getElementById('e-' + id).textContent = msg;
+    if (msg) { input.setAttribute('aria-invalid', 'true'); input.setAttribute('aria-describedby', 'e-' + id); }
+    else { input.removeAttribute('aria-invalid'); input.removeAttribute('aria-describedby'); }
+    return !msg;
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = form.name.value.trim();
+    // Accept Arabic-Indic digits and common separators, then normalise
+    var phone = form.phone.value.replace(/[٠-٩]/g, function (d) { return '٠١٢٣٤٥٦٧٨٩'.indexOf(d); }).replace(/[\s\-+()]/g, '');
+    var okName = setError('name', name ? '' : 'اكتب اسمك حتى نعرف بمن نتواصل.');
+    var okPhone = setError('phone', /^(20)?01[0125]\d{8}$/.test(phone) ? '' : 'اكتب رقم موبايل مصري من 11 رقمًا يبدأ بـ 01.');
+    if (!okName) { form.name.focus(); return; }
+    if (!okPhone) { form.phone.focus(); return; }
+    var lines = [
+      'طلب جديد من صفحة إعمار مصر جروب',
+      'الاسم: ' + name,
+      'الموبايل: ' + phone,
+      'نوع المشروع: ' + form.service.value
+    ];
+    if (form.message.value.trim()) lines.push('التفاصيل: ' + form.message.value.trim());
+    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+  });
+</script>
+</body>
+</html>
