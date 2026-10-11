@@ -120,17 +120,30 @@
   .services p { color: var(--muted); }
 
   /* Work gallery */
-  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: clamp(180px, 20vw, 250px); gap: 12px; }
-  .gallery figure { margin: 0; position: relative; overflow: hidden; background: var(--concrete); }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: clamp(180px, 20vw, 250px); gap: 12px; margin: 0; padding: 0; }
+  .gallery li { list-style: none; position: relative; overflow: hidden; background: var(--concrete); }
   .gallery .g-lg { grid-column: span 2; grid-row: span 2; }
-  .gallery img { width: 100%; height: 100%; object-fit: cover; }
-  .gallery figcaption {
+  .g-open { all: unset; display: block; width: 100%; height: 100%; cursor: zoom-in; }
+  .g-open:focus-visible { outline: 3px solid var(--orange); outline-offset: -3px; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .g-open:hover img { transform: scale(1.04); }
+  .gallery .g-cap { pointer-events: none;
     position: absolute; bottom: 0; inset-inline-start: 0;
     background: var(--ink); color: var(--paper);
     font-family: var(--display); font-weight: 700; font-size: .95rem;
     padding: 8px 14px; display: flex; align-items: center; gap: 10px;
   }
-  .gallery figcaption::before { content: ""; width: 10px; height: 10px; background: var(--orange); flex: none; }
+  .gallery .g-cap::before { content: ""; width: 10px; height: 10px; background: var(--orange); flex: none; }
+
+  /* Lightbox */
+  .lightbox { border: 0; padding: 0; background: transparent; max-width: min(1100px, 94vw); max-height: 92vh; overflow: visible; }
+  .lightbox::backdrop { background: rgba(20,21,23,.88); }
+  .lightbox img { max-width: 100%; max-height: 80vh; object-fit: contain; margin-inline: auto; }
+  .lb-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; color: var(--paper); font-family: var(--display); font-weight: 700; }
+  .lb-nav { display: flex; gap: 8px; }
+  .lb-btn { all: unset; cursor: pointer; width: 46px; height: 46px; display: grid; place-items: center; border: 2px solid #8A8C90; color: var(--paper); font-size: 1.3rem; }
+  .lb-btn:hover { border-color: var(--orange); color: var(--orange); }
+  .lb-btn:focus-visible { outline: 3px solid var(--orange); }
   .credit { margin-top: 14px; color: var(--muted); font-size: .85rem; }
 
   /* Process */
@@ -153,7 +166,13 @@
   .steps p { color: var(--muted); font-size: 1rem; }
 
   /* Investment band */
-  .invest { background: var(--ink); color: var(--paper); }
+  .invest {
+    color: var(--paper);
+    background:
+      linear-gradient(to left, rgba(43,44,47,.97) 0%, rgba(43,44,47,.9) 55%, rgba(43,44,47,.72) 100%),
+      url("assets/img/handover-wide.webp") left center / cover no-repeat,
+      var(--ink);
+  }
   .invest-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
   .invest h2 { font-size: clamp(1.7rem, 3.4vw, 2.6rem); font-weight: 800; }
   .invest p { color: #C9CBCE; margin-top: 16px; max-width: 34em; }
@@ -203,6 +222,46 @@
   .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
   .channels .addr { font-family: var(--body); font-weight: 500; font-size: 1rem; }
 
+  .map-link { display: block; width: fit-content; margin-top: 6px; font-family: var(--body) !important; font-weight: 600 !important; font-size: .9rem !important; color: var(--orange-deep); }
+  .map { margin-top: 24px; border: 3px solid var(--ink); aspect-ratio: 16 / 10; background: var(--concrete); }
+  .map iframe { display: block; width: 100%; height: 100%; border: 0; filter: grayscale(.35) contrast(1.05); }
+
+  /* FAQ */
+  .faq-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: clamp(24px, 6vw, 80px); align-items: start; }
+  .faq-grid .section-head { margin-bottom: 0; }
+  .faq-grid .section-head a { color: var(--orange-deep); font-weight: 600; }
+  .faq details { border-top: 3px solid var(--ink); }
+  .faq details:last-child { border-bottom: 3px solid var(--ink); }
+  .faq summary {
+    list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    padding: 20px 0; font-family: var(--display); font-weight: 700; font-size: 1.12rem;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: ""; flex: none; width: 14px; height: 14px; background: var(--orange);
+    transition: transform .2s ease;
+  }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq details p { padding: 0 0 22px; color: var(--muted); max-width: 42em; }
+
+  /* Hero drafting grid behind the skyline */
+  .hero-art {
+    background-image:
+      linear-gradient(var(--concrete) 1px, transparent 1px),
+      linear-gradient(90deg, var(--concrete) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: left bottom;
+  }
+
+  /* Header phone number on wide screens */
+  .header-call .ltr { font-family: var(--display); }
+  .nav a, .brand b, .header-call { white-space: nowrap; }
+  @media (max-width: 1240px) { .nav { gap: 18px; font-size: .95rem; } .site-header .wrap { gap: 18px; } }
+  @media (max-width: 1100px) { .nav { display: none; } }
+
+  /* Mobile contact bar */
+  .mobile-bar { display: none; }
+
   /* Footer */
   .site-footer { background: var(--ink); color: #C9CBCE; padding-block: 40px; }
   .site-footer .wrap { display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: space-between; }
@@ -213,13 +272,6 @@
   .site-footer a:hover { color: var(--paper); }
   .copy { font-size: .9rem; width: 100%; border-top: 1px solid #4A4C50; padding-top: 20px; }
 
-  /* Floating WhatsApp (mobile) */
-  .wa-float {
-    position: fixed; inset-inline-start: 16px; bottom: 16px; z-index: 30;
-    width: 58px; height: 58px; border-radius: 50%; background: #1FA855; color: #fff;
-    display: none; place-items: center; box-shadow: 0 6px 18px rgba(0,0,0,.25);
-  }
-  .wa-float svg { width: 30px; height: 30px; }
 
   /* Load sequence: draw the skyline once, then light the windows */
   @media (prefers-reduced-motion: no-preference) {
@@ -255,7 +307,7 @@
     .services, .values { grid-template-columns: 1fr; gap: 36px; }
     .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 150px; gap: 8px; }
     .gallery .g-lg { grid-column: span 2; grid-row: span 2; }
-    .gallery figcaption { font-size: .8rem; padding: 6px 10px; }
+    .gallery .g-cap { font-size: .8rem; padding: 6px 10px; }
     .steps { grid-template-columns: 1fr; gap: 28px; }
     .steps li { display: grid; grid-template-columns: 52px 1fr; column-gap: 18px; padding: 0; }
     .steps li::before { margin: 0; grid-row: span 2; }
@@ -266,7 +318,20 @@
     .header-call span { display: none; }
     .header-call { width: 48px; padding: 0; }
     .brand img { width: 46px; height: 46px; }
-    .wa-float { display: grid; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .faq summary { font-size: 1.02rem; padding: 16px 0; }
+    body { padding-bottom: 68px; }
+    .mobile-bar {
+      display: grid; grid-template-columns: 1fr 1fr; position: fixed; inset-inline: 0; bottom: 0; z-index: 30;
+      background: var(--ink); border-top: 3px solid var(--orange);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .mobile-bar a {
+      display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 60px;
+      color: var(--paper); text-decoration: none; font-family: var(--display); font-weight: 700;
+    }
+    .mobile-bar a + a { background: #1FA855; }
+    .mobile-bar svg { width: 22px; height: 22px; }
   }
 </style>
 </head>
@@ -284,11 +349,12 @@
       <a href="#work">أعمالنا</a>
       <a href="#process">طريقة العمل</a>
       <a href="#invest">الاستثمار العقاري</a>
+      <a href="#faq">أسئلة شائعة</a>
       <a href="#contact">تواصل معنا</a>
     </nav>
     <a class="btn btn-ghost header-call" href="tel:+201008996343" aria-label="اتصل بنا: 01008996343">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-      <span>اتصل بنا</span>
+      <span class="ltr">010 0899 6343</span>
     </a>
   </div>
 </header>
@@ -374,32 +440,32 @@
         <h2 id="work-title">من الأساسات إلى التشطيب</h2>
         <p>نوعية الأعمال التي ننفذها في مواقعنا، في كل مرحلة من مراحل المشروع.</p>
       </div>
-      <div class="gallery">
-        <figure class="g-lg">
-          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&q=70&auto=format&fit=crop" alt="مهندسون وعمال على سقف خرساني مسلّح أثناء التنفيذ" width="1200" height="800" loading="lazy">
-          <figcaption>الهيكل الخرساني</figcaption>
-        </figure>
-        <figure>
-          <img src="https://images.unsplash.com/photo-1517089596392-fb9a9033e05b?w=800&q=70&auto=format&fit=crop" alt="معدات ثقيلة تنفذ أعمال حفر وتسوية في موقع كبير" width="800" height="600" loading="lazy">
-          <figcaption>الحفر والردم</figcaption>
-        </figure>
-        <figure>
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=70&auto=format&fit=crop" alt="عمال يجهزون حديد التسليح قبل صب السقف" width="800" height="600" loading="lazy">
-          <figcaption>التسليح والصب</figcaption>
-        </figure>
-        <figure>
-          <img src="https://images.unsplash.com/photo-1599995903128-531fc7fb694b?w=800&q=70&auto=format&fit=crop" alt="أوناش برجية فوق موقع إنشاءات وأساسات خرسانية" width="800" height="600" loading="lazy">
-          <figcaption>مواقع التطوير والبنية التحتية</figcaption>
-        </figure>
-        <figure>
-          <img src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?w=800&q=70&auto=format&fit=crop" alt="صالة سكنية بتشطيب فاخر وأرضيات خشبية وإضاءة طبيعية" width="800" height="600" loading="lazy">
-          <figcaption>التشطيبات الفاخرة</figcaption>
-        </figure>
-        <figure>
-          <img src="https://images.unsplash.com/photo-1551361415-69c87624334f?w=800&q=70&auto=format&fit=crop" alt="مبنى سكني حديث مكتمل بواجهات بيضاء وشرفات" width="800" height="600" loading="lazy">
-          <figcaption>تسليم المفتاح</figcaption>
-        </figure>
-      </div>
+      <ul class="gallery">
+        <li class="g-lg">
+          <button type="button" class="g-open"><img src="assets/img/structure.webp" alt="مهندسون وعمال على سقف خرساني مسلّح أثناء التنفيذ" width="1400" height="930" loading="lazy" decoding="async"></button>
+          <span class="g-cap">الهيكل الخرساني</span>
+        </li>
+        <li>
+          <button type="button" class="g-open"><img src="assets/img/earthworks.webp" alt="معدات ثقيلة تنفذ أعمال حفر وتسوية في موقع كبير" width="900" height="600" loading="lazy" decoding="async"></button>
+          <span class="g-cap">الحفر والردم</span>
+        </li>
+        <li>
+          <button type="button" class="g-open"><img src="assets/img/rebar.webp" alt="عمال يجهزون حديد التسليح قبل صب السقف" width="900" height="600" loading="lazy" decoding="async"></button>
+          <span class="g-cap">التسليح والصب</span>
+        </li>
+        <li>
+          <button type="button" class="g-open"><img src="assets/img/site.webp" alt="أوناش برجية فوق موقع إنشاءات وأساسات خرسانية" width="900" height="600" loading="lazy" decoding="async"></button>
+          <span class="g-cap">مواقع التطوير والبنية التحتية</span>
+        </li>
+        <li>
+          <button type="button" class="g-open"><img src="assets/img/finishing.webp" alt="صالة سكنية بتشطيب فاخر وأرضيات خشبية وإضاءة طبيعية" width="900" height="600" loading="lazy" decoding="async"></button>
+          <span class="g-cap">التشطيبات الفاخرة</span>
+        </li>
+        <li>
+          <button type="button" class="g-open"><img src="assets/img/handover.webp" alt="مبنى سكني حديث مكتمل بواجهات بيضاء وشرفات" width="900" height="600" loading="lazy" decoding="async"></button>
+          <span class="g-cap">تسليم المفتاح</span>
+        </li>
+      </ul>
       <p class="credit">صور توضيحية لنوعية الأعمال من Unsplash.</p>
     </div>
   </section>
@@ -469,7 +535,38 @@
     </div>
   </section>
 
-  <section class="section bg-concrete" id="contact" aria-labelledby="contact-title">
+  <section class="section bg-concrete" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq-grid">
+      <div class="section-head">
+        <h2 id="faq-title">أسئلة يطرحها عملاؤنا قبل البدء</h2>
+        <p>لم تجد إجابة سؤالك؟ <a href="https://wa.me/201008996343" target="_blank" rel="noopener">اسألنا على واتساب</a> وسيرد عليك أحد مهندسينا.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>هل تنفذون مشروعات خارج القاهرة؟</summary>
+          <p>نعم، ننفذ مشروعات في أنحاء مصر. مقرنا الرئيسي في مدينة بدر ولنا فرع في الطالبية بالجيزة، ونرتب المعاينة حسب موقع مشروعك.</p>
+        </details>
+        <details>
+          <summary>هل يمكن أن تتولوا مرحلة واحدة فقط من مشروعي؟</summary>
+          <p>نعم. يمكن أن نتولى المشروع كاملًا من الحفر حتى تسليم المفتاح، أو مرحلة محددة مثل الهيكل الخرساني أو التشطيبات أو التوريدات.</p>
+        </details>
+        <details>
+          <summary>كيف أحصل على عرض سعر؟</summary>
+          <p>أرسل بيانات مشروعك من النموذج أو على واتساب، فنحدد معك موعد معاينة، ثم نرسل عرض سعر مفصّلًا بالبنود والكميات والجدول الزمني.</p>
+        </details>
+        <details>
+          <summary>كيف أتابع ما يحدث في الموقع أثناء التنفيذ؟</summary>
+          <p>يعمل في الموقع فريق هندسي من الشركة، ونتابع معك تقدم الأعمال بشكل دوري حتى نستلم معك المشروع بندًا بندًا.</p>
+        </details>
+        <details>
+          <summary>عندي أرض، هل يمكن تطويرها بالشراكة معكم؟</summary>
+          <p>تواصل معنا بموقع الأرض ومساحتها، فندرسها معك ونعرض عليك خيارات التطوير والشراكة المناسبة لها.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contact-title">
     <div class="wrap contact-grid">
       <form id="lead-form" novalidate aria-describedby="form-note">
         <div class="field">
@@ -495,6 +592,10 @@
           </select>
         </div>
         <div class="field">
+          <label for="f-place">مكان المشروع <span class="opt">(اختياري)</span></label>
+          <input id="f-place" name="place" placeholder="مثال: مدينة بدر، القاهرة الجديدة، 6 أكتوبر">
+        </div>
+        <div class="field">
           <label for="f-msg">تفاصيل المشروع <span class="opt">(اختياري)</span></label>
           <textarea id="f-msg" name="message" placeholder="مثال: عمارة سكنية 5 أدوار في مدينة بدر، الأرض جاهزة"></textarea>
         </div>
@@ -509,9 +610,14 @@
           <li><span class="k">اتصال وواتساب</span><a href="tel:+201008996343"><span class="ltr">010 0899 6343</span></a></li>
           <li><span class="k">خط إضافي</span><a href="tel:+201515426770"><span class="ltr">015 1542 6770</span></a></li>
           <li><span class="k">البريد الإلكتروني</span><a href="mailto:info@emgroup.com.eg"><span class="ltr">info@emgroup.com.eg</span></a></li>
-          <li><span class="k">المقر الرئيسي</span><span class="v addr">قطعة 33، شقة 3، المجاورة الثانية، الحي الأول، مدينة بدر، القاهرة</span></li>
-          <li><span class="k">فرع الجيزة</span><span class="v addr">شقة 2، الدور الأول، محطة التعاون، شارع فيصل، الطالبية</span></li>
+          <li><span class="k">المقر الرئيسي</span><span class="v addr">قطعة 33، شقة 3، المجاورة الثانية، الحي الأول، مدينة بدر، القاهرة</span>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%D9%85%D8%AF%D9%8A%D9%86%D8%A9+%D8%A8%D8%AF%D8%B1+%D8%A7%D9%84%D8%AD%D9%8A+%D8%A7%D9%84%D8%A3%D9%88%D9%84" target="_blank" rel="noopener">افتح في خرائط جوجل</a></li>
+          <li><span class="k">فرع الجيزة</span><span class="v addr">شقة 2، الدور الأول، محطة التعاون، شارع فيصل، الطالبية</span>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%D9%85%D8%AD%D8%B7%D8%A9+%D8%A7%D9%84%D8%AA%D8%B9%D8%A7%D9%88%D9%86+%D8%B4%D8%A7%D8%B1%D8%B9+%D9%81%D9%8A%D8%B5%D9%84+%D8%A7%D9%84%D8%B7%D8%A7%D9%84%D8%A8%D9%8A%D8%A9" target="_blank" rel="noopener">افتح في خرائط جوجل</a></li>
         </ul>
+        <div class="map">
+          <iframe title="خريطة موقع المقر الرئيسي في مدينة بدر" src="https://www.google.com/maps?q=%D9%85%D8%AF%D9%8A%D9%86%D8%A9%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%AD%D9%8A%20%D8%A7%D9%84%D8%A3%D9%88%D9%84&z=14&hl=ar&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -534,9 +640,52 @@
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/201008996343" target="_blank" rel="noopener" aria-label="راسلنا على واتساب">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3z"/></svg>
-</a>
+<nav class="mobile-bar" aria-label="تواصل سريع">
+  <a href="tel:+201008996343">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+    اتصل الآن
+  </a>
+  <a href="https://wa.me/201008996343" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3z"/></svg>
+    واتساب
+  </a>
+</nav>
+
+<dialog class="lightbox" id="lightbox" aria-label="عرض الصورة">
+  <img alt="">
+  <div class="lb-bar">
+    <span class="lb-cap"></span>
+    <div class="lb-nav">
+      <button type="button" class="lb-btn" data-step="-1" aria-label="الصورة السابقة">&#8594;</button>
+      <button type="button" class="lb-btn" data-step="1" aria-label="الصورة التالية">&#8592;</button>
+      <button type="button" class="lb-btn" data-close aria-label="إغلاق">&#10005;</button>
+    </div>
+  </div>
+</dialog>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "name": "إعمار مصر جروب - Emaar Misr Group",
+  "alternateName": "EMG",
+  "slogan": "رؤية هندسية.. لبناء المستقبل",
+  "url": "https://emaarmisrgroup.com/",
+  "logo": "https://emaarmisrgroup.com/assets/logo.jpg",
+  "image": "https://emaarmisrgroup.com/assets/logo.jpg",
+  "telephone": "+201008996343",
+  "email": "info@emgroup.com.eg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Plot 33, Apt 3, 2nd Neighborhood, 1st District",
+    "addressLocality": "Badr City",
+    "addressRegion": "Cairo",
+    "addressCountry": "EG"
+  },
+  "areaServed": { "@type": "Country", "name": "Egypt" },
+  "sameAs": ["https://www.facebook.com/EmarmisrGroup/", "https://emgroup.com.eg"]
+}
+</script>
 
 <script>
   var WA_NUMBER = '201008996343';
@@ -572,8 +721,39 @@
       'الموبايل: ' + phone,
       'نوع المشروع: ' + form.service.value
     ];
+    if (form.place.value.trim()) lines.push('مكان المشروع: ' + form.place.value.trim());
     if (form.message.value.trim()) lines.push('التفاصيل: ' + form.message.value.trim());
     window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+  });
+
+  // Gallery lightbox: opens the clicked photo, arrows/keys move between photos
+  var lb = document.getElementById('lightbox');
+  var lbImg = lb.querySelector('img');
+  var lbCap = lb.querySelector('.lb-cap');
+  var shots = Array.prototype.slice.call(document.querySelectorAll('.gallery li'));
+  var current = 0;
+  function show(i) {
+    current = (i + shots.length) % shots.length;
+    var img = shots[current].querySelector('img');
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbCap.textContent = shots[current].querySelector('.g-cap').textContent;
+  }
+  shots.forEach(function (li, i) {
+    var btn = li.querySelector('.g-open');
+    btn.setAttribute('aria-label', 'تكبير صورة: ' + li.querySelector('.g-cap').textContent);
+    btn.addEventListener('click', function () { show(i); lb.showModal(); });
+  });
+  lb.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-step],[data-close]');
+    if (t && t.hasAttribute('data-close')) lb.close();
+    else if (t) show(current + Number(t.dataset.step));
+    else if (e.target === lb) lb.close();
+  });
+  lb.addEventListener('keydown', function (e) {
+    // RTL: the left arrow moves forward
+    if (e.key === 'ArrowLeft') show(current + 1);
+    if (e.key === 'ArrowRight') show(current - 1);
   });
 </script>
 </body>
